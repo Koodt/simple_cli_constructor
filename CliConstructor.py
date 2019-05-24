@@ -1,10 +1,10 @@
 class CliConstructor(object):
-    def __init__(self):
-        self.cli = ''.lower()
-
-    def initial(self, prompt):
+    def __init__(self, prompt):
         import sys
+
+        self.cli = ''.lower()
         self.prompt = prompt
+
         while self.cli != 'exit':
             self.cli = input(self.prompt).lower()
             try:
@@ -12,17 +12,5 @@ class CliConstructor(object):
             except:
                 if self.cli != 'exit':
                     print('Command not found')
+
         sys.exit('Graceful exit')
-
-    def add(self):
-        pass
-
-    def help(self):
-        print('''
-        kCLI helper:
-        help        -       print this message
-        create      -       create config
-        add         -       add service to config
-        del         -       del service from config
-        exit        -       exit from kCLI
-        ''')
