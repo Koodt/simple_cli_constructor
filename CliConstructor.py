@@ -1,5 +1,8 @@
 class CliConstructor(object):
-    def __init__(self, prompt):
+    def __init__(self):
+        self.top_level = {'help': 'print this menu', 'exit': 'quit programm'}
+
+    def initial(self, prompt):
         import sys
 
         self.cli = ''.lower()
@@ -10,7 +13,10 @@ class CliConstructor(object):
             try:
                 getattr(self, self.cli)()
             except:
-                if self.cli != 'exit':
-                    print('Command not found')
+                pass
 
         sys.exit('Graceful exit')
+
+    def help(self):
+        for item in self.top_level:
+            print(item, '\t\t', self.top_level[item])
