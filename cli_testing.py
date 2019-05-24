@@ -1,3 +1,3 @@
 from CliConstructor import CliConstructor
 
-local_cli = CliConstructor().initial('my_cli>')
+local_cli = CliConstructor('my_cli>')
