@@ -1,6 +1,8 @@
 class CliConstructor(object):
     def __init__(self):
         self.top_level = {'help': 'print this menu', 'exit': 'quit programm'}
+        self.func_array = {}
+        self.arg_array = {}
 
     def initial(self, prompt):
         import sys
@@ -12,7 +14,7 @@ class CliConstructor(object):
             self.cli = input(self.prompt).lower()
             try:
 #                getattr(self, self.cli)()
-                self.top_level[self.cli]
+                self.func_array[self.cli](self.arg_array[self.name])
             except:
                 pass
 
@@ -27,7 +29,8 @@ class CliConstructor(object):
 
         if not self.parrent:
             self.top_level[self.name] = self.description
-            self.top_level[self.cli] = self.func
+            self.func_array[self.name] = self.func
+            self.arg_array[self.name] = self.arg
 
     def help(self):
         for item in self.top_level:
