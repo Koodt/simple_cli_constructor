@@ -1,20 +1,23 @@
 class CliConstructor(object):
     def __init__(self):
         self.top_level = {'help': 'print this menu', 'exit': 'quit programm'}
-        self.func_array = {}
-        self.arg_array = {}
+        self.func_array = {'help': self.help}
+        self.arg_array = {'help': False}
 
     def initial(self, prompt):
         import sys
-
-        self.cli = ''.lower()
+        self.cli = ' '.lower()
         self.prompt = prompt
 
         while self.cli != 'exit':
             self.cli = input(self.prompt).lower()
             try:
 #                getattr(self, self.cli)()
-                self.func_array[self.cli](self.arg_array[self.cli])
+                if self.arg_array[self.cli]:
+                    self.func_array[self.cli](self.arg_array[self.cli])
+                else:
+                    self.func_array[self.cli]()
+
             except:
                 pass
 

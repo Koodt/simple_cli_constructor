@@ -6,7 +6,6 @@ def func(arg):
 def func_to(arg):
     print(arg)
 
-
 local_cli = CliConstructor()
 local_cli.add('add', 'adding element', None, func, 'Jjfmr')
 local_cli.add('del', 'delete element', None, func_to, 'ChECK')
