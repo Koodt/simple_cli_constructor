@@ -14,7 +14,7 @@ class CliConstructor(object):
             self.cli = input(self.prompt).lower()
             try:
 #                getattr(self, self.cli)()
-                self.func_array[self.cli](self.arg_array[self.name])
+                self.func_array[self.cli](self.arg_array[self.cli])
             except:
                 pass
 
